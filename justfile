@@ -66,8 +66,10 @@ build-all:
         output_name+="-${GOOS}-${GOARCH}"
         
         echo "Building for $GOOS/$GOARCH..."
-        GOOS=$GOOS GOARCH=$GOARCH go build -o $output_name
+        CGO_ENABLED=0 GOOS=$GOOS GOARCH=$GOARCH go build -ldflags="-s -w" -o $output_name ./cmd/kubectl-finalize
+        echo "✅ Built $output_name"
     done
+    echo "✅ All platforms built successfully!"
 
 # Create a new release
 release VERSION:
