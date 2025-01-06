@@ -12,17 +12,23 @@ A kubectl plugin to force delete Kubernetes resources that are stuck in a Termin
 
 ## Installation
 
+### Using Homebrew
+
+```bash
+brew install teocns/tap/kubectl-finalize
+```
+
 ### Using Go
 
 ```bash
-go install github.com/yourusername/kubectl-finalize@latest
+go install github.com/teocns/kubectl-finalize@latest
 ```
 
 ### Manual Installation
 
-1. Download the latest release for your platform from the [releases page](https://github.com/yourusername/kubectl-finalize/releases)
-2. Make it executable: `chmod +x kubectl-finalize`
-3. Move it to your PATH: `sudo mv kubectl-finalize /usr/local/bin/`
+1. Download the latest release for your platform from the [releases page](https://github.com/teocns/kubectl-finalize/releases)
+2. Make it executable: `chmod +x kubectl-finalize-*`
+3. Move it to your PATH: `sudo mv kubectl-finalize-* /usr/local/bin/kubectl-finalize`
 
 ## Usage
 
@@ -53,7 +59,7 @@ The plugin includes several safety checks:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/kubectl-finalize
+git clone https://github.com/teocns/kubectl-finalize
 cd kubectl-finalize
 
 # Build
