@@ -28,13 +28,13 @@ func NewRootCmd(streams genericclioptions.IOStreams) *cobra.Command {
         Long: `A kubectl plugin to force delete Kubernetes resources that are stuck in Terminating state.
 It removes finalizers and performs a force deletion of the resource.`,
         Example: `  # Force delete a pod
-  kubectl rm pod/stuck-pod
+  kubectl finalize pod/stuck-pod
 
   # Force delete a namespace
-  kubectl rm namespace/stuck-ns
+  kubectl finalize namespace/stuck-ns
 
   # Force delete a resource in specific namespace
-  kubectl rm deployment/stuck-deploy -n my-namespace`,
+  kubectl finalize deployment/stuck-deploy -n my-namespace`,
         RunE: func(cmd *cobra.Command, args []string) error {
             return rm.ForceDelete(flags, streams, args)
         },
